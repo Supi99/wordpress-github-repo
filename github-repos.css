@@ -1,0 +1,123 @@
+/* ── GitHub Repos Plugin ─────────────────────────────────────────────────── */
+
+#ghr-root {
+  font-family: 'Courier New', Courier, monospace;
+  --ghr-bg:       #0d1117;
+  --ghr-card:     #161b22;
+  --ghr-border:   #30363d;
+  --ghr-accent:   #58a6ff;
+  --ghr-text:     #e6edf3;
+  --ghr-muted:    #8b949e;
+  --ghr-hover:    #1f2937;
+  --ghr-radius:   6px;
+}
+
+.ghr-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.ghr-card {
+  display: block;
+  background: var(--ghr-card);
+  border: 1px solid var(--ghr-border);
+  border-radius: var(--ghr-radius);
+  text-decoration: none;
+  color: var(--ghr-text);
+  transition: border-color 0.2s, background 0.2s, transform 0.15s;
+}
+
+.ghr-card:hover {
+  border-color: var(--ghr-accent);
+  background: var(--ghr-hover);
+  transform: translateY(-2px);
+}
+
+.ghr-card-inner {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.ghr-card-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ghr-icon {
+  color: var(--ghr-accent);
+  font-size: 18px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.ghr-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ghr-accent);
+  word-break: break-word;
+}
+
+.ghr-desc {
+  font-size: 13px;
+  color: var(--ghr-muted);
+  line-height: 1.5;
+  margin: 0;
+  flex: 1;
+}
+
+.ghr-desc--empty {
+  font-style: italic;
+}
+
+.ghr-link {
+  font-size: 12px;
+  color: var(--ghr-muted);
+  margin-top: auto;
+  transition: color 0.2s;
+}
+
+.ghr-card:hover .ghr-link {
+  color: var(--ghr-accent);
+}
+
+/* ── Loading ────────────────────────────────────────────────────────────── */
+.ghr-loading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ghr-muted);
+  font-size: 14px;
+  padding: 20px 0;
+}
+
+.ghr-spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--ghr-border);
+  border-top-color: var(--ghr-accent);
+  border-radius: 50%;
+  animation: ghr-spin 0.7s linear infinite;
+}
+
+@keyframes ghr-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Error / Empty ──────────────────────────────────────────────────────── */
+.ghr-error,
+.ghr-empty {
+  font-size: 14px;
+  color: var(--ghr-muted);
+  padding: 16px 0;
+}
+
+.ghr-error {
+  color: #f85149;
+}
